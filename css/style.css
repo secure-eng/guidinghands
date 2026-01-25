@@ -548,14 +548,14 @@ body {
 
 /* TEAM GRID V3 */
 
-.team-grid-v3 {
+.team-grid-v3, .founders-grid {
   margin-top: 18px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 16px;
 }
 
-.team-card-v3 {
+.team-card-v3, .founder-card {
   background: #ffffff;
   border-radius: var(--radius-lg);
   padding: 16px 14px 14px;
@@ -764,20 +764,7 @@ body {
   color: var(--muted);
 }
 
-.founders-grid {
-  margin-top: 18px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-}
 
-.founder-card {
-  background: #ffffff;
-  border-radius: var(--radius-lg);
-  padding: 18px 16px 16px;
-  box-shadow: var(--shadow-soft);
-  text-align: center;
-}
 
 .founder-card img {
   width: 120px;
