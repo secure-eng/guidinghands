@@ -1,0 +1,1 @@
+const hamburger = document.querySelector('.hamburger'); const navLinks = document.querySelector('.nav-links'); hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); }); // Gradient scroll effect window.addEventListener("scroll", () => { document.body.style.background = `linear-gradient(120deg,#ffffff,#f3f0ff ${window.scrollY / 6}%)`; });

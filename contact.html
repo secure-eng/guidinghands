@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us | Guiding Hands</title>
+  <link rel="icon" type="image/png" href="images/icon.png">
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    (function() {
+      emailjs.init("LW63W4yAGBpI7RpX-");
+    })();
+  </script>
+</head>
+<body class="page-contact">
+
+<header class="top-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="images/logo.png" alt="Guiding Hands Logo">
+    </a>
+    <button class="nav-toggle" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="mainNav" class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html" class="active">Booking</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-intro">
+    <div class="page-intro-inner">
+      <p class="page-kicker">Booking</p>
+      <h1>Get In Touch</h1>
+      <p class="page-lead">
+        Share a few details and we’ll reach out with options tailored to your loved one’s needs.
+      </p>
+    </div>
+  </section>
+
+  <section class="chapter">
+    <div class="chapter-label"></div>
+    <div class="chapter-inner contact-layout">
+      <aside class="contact-panel">
+        <h2>Contact Details</h2>
+        <div class="contact-row">
+          <h3>Phone</h3>
+          <p>+1 848-992-3273</p>
+        </div>
+        <div class="contact-row">
+          <h3>Email</h3>
+          <p>info@guidinghandsplacement.com</p>
+        </div>
+        <div class="contact-row">
+          <h3>Office</h3>
+          <p>New Jersey, USA</p>
+        </div>
+      </aside>
+
+      <div class="contact-form-card">
+        <h2>Book an Appointment</h2>
+        <p class="contact-lead">
+          We’ll review your information and respond with thoughtful, personalized guidance.
+        </p>
+
+        <form id="appointmentForm" class="contact-form">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your full name" required>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" required>
+          </div>
+          <div class="field">
+            <label for="phone">Phone Number</label>
+            <div class="phone-wrap">
+              <select name="country_code" required>
+                <option value="+1">+1 (USA)</option>
+                <option value="+44">+44 (UK)</option>
+              </select>
+              <input id="phone" name="phone" type="tel" placeholder="Enter phone number" pattern="[0-9]{6,12}" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="service">Service</label>
+            <select id="service" name="service" required>
+              <option value="">-- Select a Service --</option>
+              <option value="Assisted Living Placement">Assisted Living Placement</option>
+              <option value="MedicAid & Enrollment Support">MedicAid & Enrollment Support</option>
+              <option value="Case Management Services">Case Management Services</option>
+              <option value="Follow-Up Support">Follow-Up Support</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="date">Preferred Date</label>
+            <input id="date" name="date" type="date" required>
+          </div>
+          <div class="field">
+            <label for="notes">Additional Notes</label>
+            <textarea id="notes" name="notes" rows="4" placeholder="Any special requests or notes"></textarea>
+          </div>
+          <button type="submit" id="submitBtn" class="btn primary full">
+            <span id="btnText">Book Appointment</span>
+            <span id="loader" class="loader-text" style="display:none;">Sending...</span>
+          </button>
+          <p id="formMessage" class="form-message" style="display:none;"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col footer-left">
+      <h5>Navigate</h5>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Booking</a>
+    </div>
+    <div class="footer-col footer-center">
+      <p>© 2026 Guiding Hands Placement Services.</p>
+      <p>Brought To Life By Kosgei.</p>
+    </div>
+    <div class="footer-col footer-right">
+      <h5>Connect</h5>
+      <a href="https://www.facebook.com/profile.php?id=61584635497904&mibextid=wwXIfr&rdid=xoVAVm8JKrGXPpPp&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1DvFPEDbkh%2F%3Fmibextid%3DwwXIfr#" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/guidinghandsnj?utm_source=ig_web_button_share_sheet" target="_blank">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/18489923273" target="_blank" class="whatsapp-fab">
+  <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp">
+</a>
+
+<script>
+  function toggleNav() {
+    document.getElementById('mainNav').classList.toggle('open');
+  }
+
+  const form = document.getElementById('appointmentForm');
+  const btn = document.getElementById('submitBtn');
+  const btnText = document.getElementById('btnText');
+  const loader = document.getElementById('loader');
+  const message = document.getElementById('formMessage');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    btn.disabled = true;
+    btnText.style.display = 'none';
+    loader.style.display = 'inline';
+    message.style.display = 'none';
+
+    emailjs.sendForm('service_xl2vy4f', 'template_dh2tyy8', form)
+      .then(() => emailjs.sendForm('service_xl2vy4f', 'template_fq8qikh', form))
+      .then(() => {
+        message.style.display = 'block';
+        message.style.color = 'green';
+        message.textContent = 'Booking sent successfully! A confirmation email has been sent to you.';
+        form.reset();
+        setTimeout(() => { message.style.display = 'none'; }, 5000);
+      })
+      .catch(() => {
+        message.style.display = 'block';
+        message.style.color = 'red';
+        message.textContent = 'Failed to send booking. Please try again.';
+      })
+      .finally(() => {
+        btn.disabled = false;
+        btnText.style.display = 'inline';
+        loader.style.display = 'none';
+      });
+  });
+</script>
+
+</body>
+</html>
