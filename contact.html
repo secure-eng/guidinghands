@@ -162,65 +162,121 @@
   <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp">
 </a>
 <script>
-  // NAV TOGGLE
-  function toggleNav() {
-    document.getElementById('mainNav').classList.toggle('open');
-  }
+(function(){
 
-  // FORM SUBMISSION
-  const form = document.getElementById('appointmentForm');
-  const btn = document.getElementById('submitBtn');
-  const btnText = document.getElementById('btnText');
-  const loader = document.getElementById('loader');
-  const message = document.getElementById('formMessage');
+/* ============ NAV ============ */
+window.toggleNav = function(){
+  document.getElementById("mainNav").classList.toggle("open");
+};
 
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    btn.disabled = true;
-    btnText.style.display = 'none';
-    loader.style.display = 'inline';
-    message.style.display = 'none';
 
-    emailjs.sendForm('service_xl2vy4f', 'template_dh2tyy8', form)
-      .then(() => emailjs.sendForm('service_xl2vy4f', 'template_fq8qikh', form))
-      .then(() => {
-        message.style.display = 'block';
-        message.style.color = 'green';
-        message.textContent = 'Booking sent successfully! A confirmation email has been sent to you.';
-        form.reset();
-        setTimeout(() => { message.style.display = 'none'; }, 5000);
-      })
-      .catch(() => {
-        message.style.display = 'block';
-        message.style.color = 'red';
-        message.textContent = 'Failed to send booking. Please try again.';
-      })
-      .finally(() => {
-        btn.disabled = false;
-        btnText.style.display = 'inline';
-        loader.style.display = 'none';
-      });
+/* ============ KEY ENCODING ============ */
+function d(s){
+  return atob(s);
+}
+
+const K = {
+  s: d("c2VydmljZV94bDJ2eTRm"),
+  t1: d("dGVtcGxhdGVfZGgydHl5OA=="),
+  t2: d("dGVtcGxhdGVfZnE4cWlraA==")
+};
+
+
+/* ============ FORM ============ */
+const f = document.getElementById("appointmentForm");
+const b = document.getElementById("submitBtn");
+const bt = document.getElementById("btnText");
+const l = document.getElementById("loader");
+const m = document.getElementById("formMessage");
+
+if(f){
+
+f.addEventListener("submit", function(e){
+
+  e.preventDefault();
+
+  b.disabled = true;
+  bt.style.display = "none";
+  l.style.display = "inline";
+  m.style.display = "none";
+
+  emailjs.sendForm(K.s, K.t1, f)
+
+  .then(() => {
+    return emailjs.sendForm(K.s, K.t2, f);
+  })
+
+  .then(() => {
+
+    m.style.display = "block";
+    m.style.color = "green";
+    m.textContent = "Booking sent successfully! A confirmation email has been sent to you.";
+
+    f.reset();
+
+    setTimeout(()=>{
+      m.style.display = "none";
+    },5000);
+
+  })
+
+  .catch(()=>{
+
+    m.style.display = "block";
+    m.style.color = "red";
+    m.textContent = "Failed to send booking. Please try again.";
+
+  })
+
+  .finally(()=>{
+
+    b.disabled = false;
+    bt.style.display = "inline";
+    l.style.display = "none";
+
   });
 
-  // THEME TOGGLE + LOGO SWITCH
-  const root = document.documentElement;
-  const toggleBtn = document.getElementById("themeToggle");
-  const logo = document.getElementById("siteLogo");
+});
 
-  // Load saved theme on page load
-  if (localStorage.getItem("theme") === "dark") {
-    root.classList.add("dark-mode");
-    logo.src = 'images/logowhite.png'; // dark logo
-  } else {
-    logo.src = 'images/logo.png'; // light logo
+}
+
+
+/* ============ THEME + LOGO ============ */
+
+const r = document.documentElement;
+const t = document.getElementById("themeToggle");
+const lg = document.getElementById("siteLogo");
+
+function setTheme(dark){
+
+  if(dark){
+    r.classList.add("dark-mode");
+    lg.src = "images/logowhite.png";
+  }else{
+    r.classList.remove("dark-mode");
+    lg.src = "images/logo.png";
   }
 
-  toggleBtn.addEventListener("click", () => {
-    const isDark = root.classList.toggle("dark-mode");
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-    logo.src = isDark ? 'images/logowhite.png' : 'images/logo.png';
-  });
+  localStorage.setItem("theme", dark ? "dark" : "light");
+}
+
+
+const saved = localStorage.getItem("theme") === "dark";
+setTheme(saved);
+
+
+if(t){
+t.addEventListener("click", ()=>{
+
+  const isDark = !r.classList.contains("dark-mode");
+  setTheme(isDark);
+
+});
+}
+
+})();
 </script>
+
 
 </body>
 </html>
