@@ -1161,7 +1161,7 @@ body {
 /* CHAPTER GRID */
 
 .dark-mode .chapter-card {
-  background: #1b1d27;
+  background: #1e1e1e;
   box-shadow: var(--shadow-soft);
 }
 
@@ -1210,7 +1210,7 @@ body {
 /* SERVICES GRID */
 
 .dark-mode .service-card {
-  background: #1b1d27;
+  background: #1e1e1e;
   box-shadow: var(--shadow-soft);
 }
 
@@ -1256,7 +1256,7 @@ body {
 
 .dark-mode .contact-panel,
 .dark-mode .contact-form-card {
-  background: #1b1d27;
+  background: #1e1e1e;
   box-shadow: var(--shadow-soft);
 }
 
@@ -1297,7 +1297,7 @@ body {
 /* CAREERS CARD */
 
 .dark-mode .careers-card {
-  background: #1b1d27;
+  background: #1e1e1e;
   box-shadow: var(--shadow-soft);
 }
 
@@ -1320,7 +1320,7 @@ body {
 .dark-mode .timeline-card,
 .dark-mode .founder-card,
 .dark-mode .value-card {
-  background: #1b1d27;
+  background: #1e1e1e;
   box-shadow: var(--shadow-soft);
 }
 
@@ -1410,4 +1410,159 @@ html, body, .dark-mode {
 }
 .dark-mode .site-logo {
   content: url("images/logowhite.png");
+}
+//* ===============================
+   CAREERS / APPLY SECTION
+================================ */
+
+.careers-intro {
+  max-width: 800px;
+  margin: 0 auto 30px;
+  text-align: center;
+  line-height: 1.8;
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+/* Cards Grid */
+
+.cards {
+  max-width: 1200px;
+  margin: 40px auto 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+}
+
+/* Career Card */
+
+.career-card {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 26px 22px;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Hover */
+
+.career-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.18);
+}
+
+/* Title */
+
+.career-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--purple);
+  margin-bottom: 10px;
+}
+
+/* Text */
+
+.career-card p {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 260px;
+}
+
+/* Apply Section */
+
+.apply-section {
+  max-width: 900px;
+  margin: 60px auto 0;
+  text-align: center;
+}
+
+.apply-section p {
+  margin-top: 14px;
+  line-height: 1.8;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+/* Highlight Job ID */
+
+.apply-section strong {
+  color: var(--purple);
+  font-weight: 600;
+}
+
+
+/* ===============================
+   DARK MODE SUPPORT
+================================ */
+
+body.dark-mode .career-card {
+  background: var(--card-bg);
+  color: var(--text);
+}
+
+body.dark-mode .career-card p {
+  color: var(--text-muted);
+}
+
+body.dark-mode .careers-intro,
+body.dark-mode .apply-section p {
+  color: var(--text-muted);
+}
+
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 768px) {
+
+  .careers-intro,
+  .apply-section p {
+    font-size: 0.95rem;
+    padding: 0 12px;
+  }
+
+  .career-card {
+    padding: 22px 18px;
+  }
+
+  .career-card h3 {
+    font-size: 1.05rem;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .cards {
+    gap: 16px;
+  }
+
+  .career-card {
+    padding: 20px 16px;
+  }
+
+}
+/* DARK MODE: Career Cards Fix */
+
+.dark-mode .career-card {
+  background: #1e1e1e;   /* Dark card background */
+  color: #f1f1f1;        /* Light text */
+  border-color: #333;
+}
+
+.dark-mode .career-card h3 {
+  color: #ffffff;
+}
+
+.dark-mode .career-card p {
+  color: #cccccc;
 }
